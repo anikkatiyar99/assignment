@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"net"
-	"os"
 
 	mysvccore "github.com/anikkatiyar99/mysvc/core"
 	mysvcgrpc "github.com/anikkatiyar99/mysvc/grpc"
@@ -24,7 +23,7 @@ func main() {
 	mysvcgrpc.RegisterUserServiceServer(server, userServiceController)
 	reflection.Register(server)
 
-	con, err := net.Listen("tcp", os.Getenv("GRPC_ADDR"))
+	con, err := net.Listen("tcp", ":9101")
 	if err != nil {
 		panic(err)
 	}

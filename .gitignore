@@ -1,2 +1,2 @@
-grpc/server/mysvc
-mysvctest/mysvctest
+mysvc
+test/test

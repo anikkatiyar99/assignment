@@ -1,15 +1,16 @@
 package core
 
 import (
-	mysvc "github.com/anikkatiyar99/mysvc"
+	"github.com/anikkatiyar99/mysvc"
 )
 
 type service struct {
+	// a database dependency would go here but instead we're going to have a static map
 	m map[int64]mysvc.User
 }
 
 // NewService instantiates a new Service.
-func NewService() mysvc.Service {
+func NewService( /* a database connection would be injected here */ ) mysvc.Service {
 	return &service{
 		m: map[int64]mysvc.User{
 			1: {
@@ -40,8 +41,8 @@ func NewService() mysvc.Service {
 	}
 }
 
-// GetUser returns a user by ID.
 func (s *service) GetUser(id int64) (result mysvc.User, err error) {
+	// instead of querying a database, we just query our static map
 	if result, ok := s.m[id]; ok {
 		return result, nil
 	}
@@ -49,8 +50,8 @@ func (s *service) GetUser(id int64) (result mysvc.User, err error) {
 	return result, mysvc.ErrNotFound
 }
 
-// GetUsers returns a list of all users.
 func (s *service) GetUsers(ids []int64) (result map[int64]mysvc.User, err error) {
+	// always a good idea to return non-nil maps to avoid nil pointer dereferences
 	result = map[int64]mysvc.User{}
 
 	for _, id := range ids {

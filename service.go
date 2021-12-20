@@ -1,4 +1,4 @@
-package myusrsvc
+package mysvc
 
 import "errors"
 

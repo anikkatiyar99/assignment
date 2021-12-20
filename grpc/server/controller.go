@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	mysvc "github.com/anikkatiyar99/mysvc"
+	"github.com/anikkatiyar99/mysvc"
 	mysvcgrpc "github.com/anikkatiyar99/mysvc/grpc"
 )
 

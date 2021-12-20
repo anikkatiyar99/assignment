@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	mysvc "github.com/anikkatiyar99/mysvc"
+	"github.com/anikkatiyar99/mysvc"
 	mysvccore "github.com/anikkatiyar99/mysvc/core"
 	mysvcgrpc "github.com/anikkatiyar99/mysvc/grpc/client"
 	"github.com/xiam/to"
@@ -15,7 +15,7 @@ func main() {
 	var localService, grpcService mysvc.Service
 
 	localService = mysvccore.NewService()
-	grpcService, err := mysvcgrpc.NewGRPCService(os.Getenv("GRPC_ADDR"))
+	grpcService, err := mysvcgrpc.NewGRPCService(":9101")
 	if err != nil {
 		log.Printf("error instantiating gRPC service: %v\n", err)
 		os.Exit(1)

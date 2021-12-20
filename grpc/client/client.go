@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	mysvc "github.com/anikkatiyar99/mysvc"
+	"github.com/anikkatiyar99/mysvc"
 	mysvcgrpc "github.com/anikkatiyar99/mysvc/grpc"
 	"google.golang.org/grpc"
 )
